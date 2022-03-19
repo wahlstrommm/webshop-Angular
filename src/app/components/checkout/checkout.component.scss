@@ -1,0 +1,70 @@
+body {
+  background-color: #8998ac;
+}
+main {
+  height: 1000px;
+  width: 100%;
+}
+.mainContainer {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  display: flex;
+  background-color: #8998ac;
+  justify-content: center;
+}
+.btn{
+  background:    #666666;
+  border:        1px solid #556699;
+  border-radius: 11px;
+  box-shadow:    0 1px #444444;
+  padding:       4px 32px;
+  color:         #ffffff;
+  display:       inline-block;
+  font:          normal bold 19px/1 "Ubuntu", sans-serif;
+  text-align:    center;
+  position: relative;
+  bottom: 2px;
+}
+h1{
+  font-size: 2rem;
+}
+.btn:disabled{
+  opacity: 30%;
+  }
+input{ 
+  height: 3rem;
+width: 25rem;
+font-size: 1.5rem;
+} 
+.textAmountAndPrice{
+  font-size: 1.5rem;
+}
+.formContainer {
+  width: 80%;
+  background-color: #8998ac;
+  text-align: center;
+}
+.imgCheckout {
+  height: 55px;
+  width: 55px;
+  border-radius: 5%;
+}
+.btnRemove{
+  
+  background:    #666666;
+  border:        1px solid #556699;
+  border-radius: 11px;
+  box-shadow:    0 1px #444444;
+  padding:       0px 26px;
+  color:         #ffffff;
+  display:       inline-block;
+  font:          normal bold 19px/1 "Ubuntu", sans-serif;
+  text-align:    center;
+}
+p{
+  font-size: 1.5rem;
+}
+.heading{
+  font-size: 2rem;
+}

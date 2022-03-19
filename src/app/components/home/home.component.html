@@ -1,0 +1,13 @@
+<body>
+  <section class="backgroundContainerHomepage">
+    <article class="flex-container">
+      <div class="prod" *ngFor="let prod of products">
+        <img src="{{ prod.imageUrl }}" class="imgContainer" alt="" />
+        <h3>{{ prod.name }}</h3>
+      </div>
+    </article>
+    <button class="btn">
+      <a routerLink="products">Klicka här för att se vårt utbud!</a>
+    </button>
+  </section>
+</body>

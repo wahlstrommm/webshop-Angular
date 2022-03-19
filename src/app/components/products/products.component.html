@@ -1,0 +1,80 @@
+<body>
+  <div class="inputContainer"> 
+      <form [formGroup]="searchForm" >
+        <input type="text"class="input" #serachtext formControlName="searchText" placeholder="Skriv in önskad film!" />
+        <button [disabled]="!searchForm.valid" class="btnS" (click)="serachMovieByInput()">Sök!</button>
+      </form>
+  </div>
+  <div class="categoryContainer">
+
+      <button class="btnCategory" (click)="filterCategory(btn.value)" #btn *ngFor="let category of allCategory" value={{category.id}}>
+          {{category.name}}
+      </button>
+      <button class="btnCategory" (click)="showAllMovies()">Alla</button>
+  </div>
+
+<article class="containerforProductCotainer">
+    <article class="noMovieContainer" *ngIf="noMoviesContainer">
+       <p class="noMovieText"> Fanns inga filmer med detta namn! Tryck här för att se <button class="btn" (click)="showAllMovies()">Alla</button>                                              
+    </article>
+    
+  <article class="productsContainer" *ngIf="prodContainerAll" >
+
+    <div class="prodprodAll" *ngFor="let prod of products; let i = index">
+      <div>
+        <img src="{{ prod.imageUrl }}" class="imgContainer" alt="Image on the movie: {{ prod.name }}"/>
+        <h3>{{ prod.name }}</h3>
+
+          <ul>
+            <li>{{ prod.description }}</li>
+            <li>Produkt id: {{ prod.id }}</li>
+            <li>{{ prod.price }} kr</li>
+          </ul>
+
+        <div>
+          <button class="btnBuy"(click)="addItem(prod.id, prod.name, prod.price)">
+            Köp!
+          </button>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="productsContainer" *ngIf="prodContainerfilter">
+
+    <div class="prodprodAll" *ngFor="let prod of filteredList; let i = index">
+      <div id="{{ i }}">
+        <img src="{{ prod.imageUrl }}"class="imgContainer" alt="Image on the movie: {{ prod.name }}"/>
+        <h3>{{ prod.name }}</h3>
+
+        <ul>
+          <li>{{ prod.description }}</li>
+          <li>Produkt id: {{ prod.id }}</li>
+          <li>{{ prod.price }} kr</li>
+        </ul>
+
+        <button class="btnBuy"(click)="addItem(prod.id, prod.name, prod.price)">Köp!</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="productsContainer" *ngIf="prodContainerSerach">
+    <div class="prodprodAll" *ngFor="let prod of resultFromSearch; let i = index">
+        <div *ngIf="resultFromSearch.length>0">
+
+          <img src="{{ prod.imageUrl }}" class="imgContainer" alt="Image on the movie: {{ prod.name }}"/>
+            <h3>{{ prod.name }}</h3>
+
+            <ul>
+              <li>{{ prod.description }}</li>
+              <li>Produkt id: {{ prod.id }}</li>
+              <li>{{ prod.price }} kr</li> 
+            </ul>
+            
+          <button class="btnBuy"(click)="addItem(prod.id, prod.name, prod.price)">Köp!</button>
+        
+      </div>
+    </div>
+  </article>
+</article>
+</body>

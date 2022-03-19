@@ -1,0 +1,32 @@
+<header>
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+          <img [src]="home" alt="home image" class="svgImg" />Hem
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="admin" routerLinkActive="active">
+          <img [src]="admin" alt="admin image" class="svgImg" />Admin
+        </a>
+      </li>
+      <li>
+        <a routerLink="products" routerLinkActive="active">
+            <img [src]="prod" alt="admin image" class="svgImg" />Produkter
+        </a>
+      </li>
+      <li class="varukorg">
+        <a routerLink="basket" routerLinkActive="active">
+          <button [disabled]="itemsToBasket == 0">
+            <img [src]="cart" alt="basket image" class="svgImg" />Varukorg
+          </button>
+        </a>
+      </li>
+    </ul>
+    <div class="logoContainer">
+      <img [src]="logo" alt="logo" class="logo">
+    </div>
+  </nav>
+</header>

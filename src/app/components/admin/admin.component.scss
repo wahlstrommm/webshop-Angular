@@ -1,0 +1,56 @@
+main {
+  background-color: #8998ac;
+  height: 1000px;
+  width: 100%;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  height: 800px;
+  background-color: #8998ac;
+}
+.orderContainerAdmin {
+  border-radius: 5%;
+  border: 2px solid black;
+  position: relative;
+  top: 50px;
+  width: 80%;
+  text-align: center;
+  background-color: #e9e8e857;
+  display: flex;
+  justify-content: center;
+}
+ul{
+  list-style: none;
+}
+.headingFont{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(228, 222, 222);
+  font-size: 2rem;
+  text-align: center;
+ 
+}
+.table{
+position: absolute;
+top: 50px;
+font-size: 1.5rem;
+
+}
+.heading{
+  position: absolute;
+  top: 0px;
+}
+table{
+  gap: 50px;
+}
+.btn{
+  background:    #15d798;
+  border:        1px solid #556699;
+  border-radius: 12px;
+  box-shadow:    0 1px #444444;
+  padding:       20px 46px;
+  color:         #ffffff;
+  display:       inline-block;
+  font:          normal bold 20px/1 "Ubuntu", sans-serif;
+  text-align:    center;
+}

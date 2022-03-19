@@ -1,0 +1,26 @@
+<body>
+  <main>
+    <app-products></app-products>
+    <section class="mainContainer">
+      <article class="cartContainer">
+        <article class="cartItemsContainer">
+
+          <ul>
+            <li *ngFor="let p of itemsToBasket; let i = index">
+              <b>ProduktID:</b> {{ p.productId }}<br />
+              <b>Namn: </b>{{ p.product }}<br />
+              <b>Pris:</b> {{ p.price }} :-<br /><br />
+            </li>
+          </ul>
+          
+          <a routerLink="checkout" routerLinkActive="active">
+            <button class="btnBuy"[disabled]="itemsToBasket == 0" [hidden]="itemsToBasket == 0">
+              <img [src]="shield" alt="basket image" class="svgImg" />
+              Betala!
+            </button>
+          </a>
+        </article>
+      </article>
+    </section>
+  </main>
+</body>

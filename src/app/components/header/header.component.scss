@@ -1,0 +1,43 @@
+nav {
+  position: relative;
+  top: 0px;
+  height: 7rem;
+  width: 100%;
+  background-color: #8998ac;
+  ul {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    top: 20px;
+    display: flex;
+    gap: 50px;
+    justify-content: flex-start;
+  }
+  a {
+    text-decoration: none;
+    &.active {
+      text-decoration: underline;
+    }
+  }
+  .varukorg {
+    position: absolute;
+    right: 10px;
+    border-radius: 10%;
+    border: 1.5px solid black;
+    font-style: bold;
+  }
+  .svgImg {
+    height: 24px;
+    width: 24px;
+  }
+}
+.logoContainer{
+  display: flex;
+  justify-content: center;
+}
+.logo{
+  position: relative;
+  height: 7.6rem;
+  bottom: 37px;
+}

@@ -1,0 +1,158 @@
+<body>
+  <main class="main">
+    <article class="mainContainer">
+      <article class="formContainer">
+        <div *ngIf="itemOverview">
+          <h1 class="heading">Översikt över dina val!</h1>
+          <br /><br />
+
+          <p *ngFor="let p of itemsToBasket; let i = index">
+            <br />
+           <b>{{ p.product }} </b> 
+           <b>{{ p.price }} </b>:-
+
+            <button class="btnRemove" (click)="removeItem(itemsToBasket.splice(i, 1))">
+              Ta bort!
+            </button>
+            <br /><br />
+          </p>
+         <h2>{{ removedItemText }}</h2> 
+
+          <br /><br />
+          <h3 *ngIf="itemsArrayFromUser.length > 0">
+
+            Summa att betala: {{ totalSumToPay }} :-<br /><br />
+
+            Ser allt bra ut? Tryck <button class="btnRemove" (click)="showInformationForm()"> här </button> för att gå vidare!
+          </h3>
+
+          <div *ngIf="itemsArrayFromUser.length == 0">
+            <h2>Din varukorg är tom!</h2>
+            <p>
+              För att se våra produkter tryck: 
+              <button class="btnRemove">
+                <a routerLink="/products" routerLinkActive="active">Här</a>
+              </button>
+            </p>
+          </div>
+        </div>
+
+        <article *ngIf="fromContainer">
+          <div>
+
+            <h1>Uppgifter!</h1>
+
+            <form [formGroup]="userInfoForm" *ngIf="formContainer" class="Forms">
+              <input type="text" formControlName="userFName" placeholder="Förnamn" />
+
+              <div *ngIf="userInfoForm.get('userFName')?.invalid && (userInfoForm.get('userFName')?.touched ||userInfoForm.get('userFName')?.dirty) " >
+                
+                <div *ngIf="userInfoForm.get('userFName')?.errors?.['required']" >
+                  <p class="textAmountAndPrice">Detta fält är obligatoriskt!</p>
+                </div>
+
+                <div *ngIf="userInfoForm.get('userFName')?.errors?.['minlength']">
+                  <p class="textAmountAndPrice">Ert förnamn måste innehålla minst två tecken!</p>
+                </div>
+
+              </div>
+                <input type="text" formControlName="userLName" placeholder="Efternamn"/>
+                
+                <br /><br />
+
+                <div *ngIf="userInfoForm.get('userLName')?.invalid && (userInfoForm.get('userLName')?.touched ||userInfoForm.get('userLName')?.dirty)" >
+
+                    <div *ngIf="userInfoForm.get('userLName')?.errors?.['required']" >
+                      <p class="textAmountAndPrice">Detta fält är obligatoriskt!</p>
+                    </div>
+
+                    <div *ngIf="userInfoForm.get('userLName')?.errors?.['minlength']" >
+                     <p class="textAmountAndPrice"> Ert efternamn måste innehålla minst två tecken!</p>
+                    </div>  
+
+                </div>
+              
+
+              <input type="text" formControlName="userAdress" placeholder="Adress" />
+
+              <div *ngIf="userInfoForm.get('userAdress')?.invalid && (userInfoForm.get('userAdress')?.touched ||userInfoForm.get('userAdress')?.dirty)" >
+
+                  <div *ngIf="userInfoForm.get('userAdress')?.errors?.['required']" >
+                    <p class="textAmountAndPrice">Detta fält är obligatoriskt!</p>
+                  </div>
+
+                  <div *ngIf="userInfoForm.get('userAdress')?.errors?.['minlength']" >
+                    <p class="textAmountAndPrice">Ert adress måste innehålla minst tre tecken!</p>
+                  </div>  
+
+              </div>
+
+              <input type="text" formControlName="userZipCode"  placeholder="Postkod" />
+                <div *ngIf="userInfoForm.get('userZipCode')?.invalid && (userInfoForm.get('userZipCode')?.touched ||userInfoForm.get('userZipCode')?.dirty)" >
+
+                  <div *ngIf="userInfoForm.get('userZipCode')?.errors?.['required']" >
+                    <p class="textAmountAndPrice">Detta fält är obligatoriskt!</p>
+                  </div>
+
+                  <div *ngIf="userInfoForm.get('userZipCode')?.errors?.['minlength']" >
+                    <p class="textAmountAndPrice">Ert postkod måste innehålla minst fyra tecken!</p>
+                  </div>  
+
+                </div>
+              <br /><br />
+
+              <input type="text" formControlName="userMobile" placeholder="mobil"/>
+              <div *ngIf="userInfoForm.get('userMobile')?.invalid && (userInfoForm.get('userMobile')?.touched ||userInfoForm.get('userMobile')?.dirty)" >
+
+                <div *ngIf="userInfoForm.get('userMobile')?.errors?.['required']" >
+                  <p class="textAmountAndPrice">Detta fält är obligatoriskt!</p>
+                </div>
+
+                <div *ngIf="userInfoForm.get('userMobile')?.errors?.['minlength']" >
+                  <p class="textAmountAndPrice">Ert telefonnummer måste innehålla minst tio siffror!</p>
+                </div>  
+                <br /><br />
+              </div>
+
+              <input type="text" formControlName="userEmail" placeholder="Email" />
+              <div *ngIf="userInfoForm.get('userEmail')?.invalid && (userInfoForm.get('userEmail')?.touched ||userInfoForm.get('userEmail')?.dirty)" >
+
+                <div *ngIf="userInfoForm.get('userEmail')?.errors?.['required']" >
+                  <p class="textAmountAndPrice">Detta fält är obligatoriskt!</p>
+                </div>
+
+                <div *ngIf="userInfoForm.get('userEmail')?.errors?.['minlength']" >
+                  <p class="textAmountAndPrice">Ert mail måste ni skriva!</p>
+                </div>  
+
+              </div>
+              <br /> <br /><br />
+            </form>
+
+            <br /><br />
+            <div *ngIf="summaryContainer">
+              <p class="textAmountAndPrice">Antal produkter: <b>{{itemsToBasket.length }}</b> st</p> <br />
+              <p class="textAmountAndPrice">Total kostnad: <b>{{ totalSumToPay }}</b> :-</p> <br /><br />
+              
+
+              
+              <button (click)="card()" [disabled]="!cardMethod" *ngIf="userInfoForm.valid" class="btn">Card</button>
+              <button (click)="paypal()" [disabled]="!paypalMethod" *ngIf="userInfoForm.valid" class="btn">Paypal</button>
+
+              <br /><br />
+              <button [disabled]="!choosePayMethod" type="submit" (click)="sendOrder()" class="btn">Skicka order!</button>
+            </div>
+          </div>
+        </article>
+        <article *ngIf="thankYouContainer">
+          <h1>Tack! Att ni handlar hos oss!</h1>
+          <h1>Om ni skulle vilja kolla på fler varor finner ni det 
+            <button class="btn">
+              <a routerLink="/products" routerLinkActive="active">Här</a>
+            </button>
+          </h1>
+        </article>
+      </article>
+    </article>
+  </main>
+</body>

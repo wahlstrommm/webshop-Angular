@@ -1,0 +1,43 @@
+.mainContainer {
+  width: 400px;
+  height: 900px;
+}
+ul {
+  list-style: none;
+  li {
+    font-size: 1.4rem;
+  }
+}
+.btnBuy{
+  background:    #666666;
+border:        1px solid #556699;
+border-radius: 11px;
+box-shadow:    0 1px #444444;
+padding:       4px 32px;
+color:         #ffffff;
+display:       inline-block;
+font:          normal bold 19px/1 "Ubuntu", sans-serif;
+text-align:    center;
+}
+.cartContainer {
+  position: absolute;
+  right: 0px;
+  top: 60px;
+  z-index: 999;
+  width: 300px;
+  height: auto;
+  background-color: rgb(196, 190, 190);
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  border-radius: 10px 15px 20px; /* top left, top right, bottom right, bottom left */
+  display: flex;
+  justify-content: center;
+}
+.cartItemsContainer {
+  position: relative;
+  top: 5%;
+  height: 90%;
+  width: 90%;
+  text-align: center;
+}

@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'webshop-Angular'`, () => {
+  it(`should have as title 'angular_webshop'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('webshop-Angular');
+    expect(app.title).toEqual('angular_webshop');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('webshop-Angular app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('angular_webshop app is running!');
   });
 });
